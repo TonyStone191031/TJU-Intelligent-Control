@@ -1,0 +1,65 @@
+[System]
+Name='Ghfuzzy_v1'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=21
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='T_in_pred'
+Range=[10 40]
+NumMFs=5
+MF1='ZE':'trimf',[17.5 21.5 23]
+MF2='NB':'gauss2mf',[0.9585 10 0.9585 13]
+MF3='NS':'trimf',[13 15 20]
+MF4='PB':'gauss2mf',[1.019 26.5 2.378 40]
+MF5='PS':'trimf',[21 23.5 25]
+
+[Input2]
+Name='dT_out'
+Range=[-10 10]
+NumMFs=5
+MF1='NB':'trapmf',[-15.25 -10.25 -2.5 -1]
+MF2='ZE':'trimf',[-0.5 0 0.5]
+MF3='PB':'trapmf',[1 2.5 10.25 15.25]
+MF4='NS':'trimf',[-2 -1 0]
+MF5='PS':'trimf',[0 1 2]
+
+[Output1]
+Name='Q_coef'
+Range=[-200 200]
+NumMFs=5
+MF1='NB':'gauss2mf',[45.32 -250.2 20 -120]
+MF2='ZE':'trimf',[-40 0 40]
+MF3='PB':'gauss2mf',[37.38 169 45.32 230]
+MF4='NS':'trimf',[-100 -68 -30]
+MF5='PS':'trimf',[30 80 140]
+
+[Rules]
+2 1, 3 (1) : 1
+2 4, 3 (1) : 1
+2 2, 3 (1) : 1
+2 5, 5 (1) : 1
+2 3, 2 (1) : 1
+3 1, 3 (1) : 1
+3 4, 5 (1) : 1
+3 2, 5 (1) : 1
+3 5, 4 (1) : 1
+3 3, 1 (1) : 1
+1 1, 3 (1) : 1
+1 4, 5 (1) : 1
+1 2, 2 (1) : 1
+1 5, 2 (1) : 1
+1 3, 1 (1) : 1
+5 1, 2 (1) : 1
+5 4, 4 (1) : 1
+5 2, 4 (1) : 1
+5 5, 4 (1) : 1
+5 3, 1 (1) : 1
+4 0, 1 (1) : 1
